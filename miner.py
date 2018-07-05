@@ -1,16 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.ui import WebDriverWait
-#from datetime import date, timedelta, datetime
+from datetime import date, timedelta, datetime
 import time
 
-timeStampInicial = 1514818800 #01/01/2018
-timeStampFinal = 1528329600
+timeStampInicial = 1527811200 #01/01/2018
+timeStampFinal = 1530403200
 passo = 86400
 
 
 driver = webdriver.Chrome()
-hastagList = ['lulalivre']
+hastagList = ['pratodagalera']
 for hastag in hastagList:
 
     try:

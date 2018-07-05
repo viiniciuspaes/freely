@@ -17,9 +17,10 @@ class Location(Base):
     __tablename__ = "location"
 
     id = Column("id_location", Integer, primary_key=True)
-    name = Column("name", Integer, Text, nullable=False)
-    latitude = Column("latitude", Text, nullable=False)
-    longitude = Column("longitude", Text, nullable=False)
+    name = Column("name",Text,nullable=False)
+    #name = Column("name", Integer, Text, nullable=False)
+    #latitude = Column("latitude", Text, nullable=False)
+    #longitude = Column("longitude", Text, nullable=False)
 
 
 class Feeling(Base):
