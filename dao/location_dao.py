@@ -33,3 +33,20 @@ def search_location(latitude, longitude):
     else:
         session.close()
         return None
+
+
+def search_location_by_id(id):
+    session = get_session()
+    session = session()
+    location_query = session.query(Location).filter(Location.id == id ).all()
+    if location_query:
+        location_query = location_query[0]
+        location_obj = LocationObj(location_query.name)
+        location_obj.set_id(location_query.id)
+        location_obj.set_latitude(location_query.latitude)
+        location_obj.set_longitude(location_query.longitude)
+        session.close()
+        return location_obj
+    else:
+        session.close()
+        return None

@@ -3,6 +3,8 @@ class UserObj:
         self.username = username
         self.id = None
         self.location = None
+        self.followers = None
+        self.tweets = None
 
     def get_username(self):
         return self.username

@@ -10,8 +10,14 @@ class TweetObj:
         self.n_reply = None
         self.n_retweets = None
         self.n_likes = None
-        self.date =  None
+        self.date = None
         self.fake = False
+
+    def set_user(self, user):
+        self.id_user = user
+
+    def get_user(self):
+        return self.id_user
 
     def set_text(self, text):
         self.text = text
