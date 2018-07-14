@@ -9,7 +9,7 @@ def miner(tm_inicio, tm_fim, hashtag):
     passo = 86400
 
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(executable_path=r"C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\controllers\chromedriver.exe")
     hastagList = [hashtag]
     for hastag in hastagList:
 
@@ -56,4 +56,4 @@ def miner(tm_inicio, tm_fim, hashtag):
                 print(string)
                 wArq.write(string)
             timeStampInicial = int(timeStampInicial) + passo + 1
-miner(1527811200, 1530791440, "LulaLivre")
+# miner(1531399299, 1531399305, "auladececabanco")

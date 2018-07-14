@@ -18,8 +18,8 @@ class Location(Base):
 
     id = Column("id_location", Integer, primary_key=True)
     name = Column("name",Text,nullable=False)
-    latitude = Column("latitude", Text, nullable=False)
-    longitude = Column("longitude", Text, nullable=False)
+    latitude = Column("latitude", Text)
+    longitude = Column("longitude", Text)
 
 
 class Feeling(Base):
@@ -41,8 +41,8 @@ class Font(Base):
     __tablename__ = "font"
 
     id = Column("id_font", Integer, primary_key=True)
-    id_user = Column("id_user", Integer, ForeignKey(User.id))
-    url = Column("url", Text)
+    id_user = Column("id_user", Integer, ForeignKey(User.id), unique=True, nullable=True)
+    url = Column("url", String(254), unique=True, nullable=True)
     trust = Column("trust", Boolean)
 
 
@@ -52,14 +52,15 @@ class Tweet(Base):
     id = Column("id_tweet", Integer, primary_key=True)
     id_user = Column("id_user", Integer, ForeignKey(User.id), nullable=False)
     id_hashtag = Column("id_hashtag", Integer,ForeignKey(HashTag.id))
-    id_location = Column("id_location", Integer, ForeignKey(Location.id),)
-    id_feeling = Column("id_feeling", Integer, ForeignKey(Feeling.id))
+    id_location = Column("id_location", Integer, ForeignKey(Location.id))
+    id_feeling = Column("id_feeling", Integer, ForeignKey(Feeling.id))  # TODO: tem que ser nullable = False
     id_font = Column("id_font", Integer, ForeignKey(Font.id))
     text = Column("text_tweet", Text, nullable=False)
-    n_reply = Column("n_reply", Integer)
-    n_retweets = Column("n_retweets", Integer)
-    n_likes = Column("n_likes", Integer)
-    data = Column("data", DateTime)
+    n_reply = Column("n_reply", Integer)  # TODO: pode ser removida ja que replys sao outros tweets é essa informação
+    # nao fica disponivel
+    n_retweets = Column("n_retweets", Integer, nullable=False)
+    n_likes = Column("n_likes", Integer, nullable=False)
+    data = Column("data", DateTime, nullable=True)  # TODO: tem que ser False
     fake = Column("fake", Boolean)
 
 
@@ -69,6 +70,14 @@ class UserFeeling(Base):
     id = Column("id", Integer, primary_key=True)
     id_user = Column("id_user", Integer, ForeignKey(User.id), nullable=False)
     id_feeling = Column("id_feeling", Integer, ForeignKey(Feeling.id), nullable=False)
+
+
+class TagTweet(Base):
+    __tablename__ = "tag_tweet"
+
+    id = Column("id", Integer, primary_key=True)
+    id_hashtag = Column("id_hashtag", Integer, ForeignKey(HashTag.id), nullable=False)
+    id_tweet = Column("id_tweet", Integer, ForeignKey(Tweet.id), nullable=False)
 
 
 def get_engine():

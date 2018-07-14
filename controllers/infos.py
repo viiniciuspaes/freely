@@ -9,6 +9,7 @@ from traceback import print_tb, extract_tb, format_list
 from controllers.db_controllers import get_location, get_user, add_hashtag
 from dao.hashtag_dao import insert_hashtag
 from dao.tweet_dao import insert_tweet
+from dao.tweet_hash_dao import insert_relation_tweet_tag
 from models.hashtag import HashTagObj
 from models.location import LocationObj
 from models.tweet import TweetObj
@@ -62,18 +63,11 @@ def get_tweets(hashtag):
             if location_name:
                 location_obj = LocationObj(location_name[0])
                 location_obj.set_latitude(location_name[1])
-                location_obj.set_longitude(location_name[0])
+                location_obj.set_longitude(location_name[2])
                 location_obj = get_location(location_obj)
                 location_id = location_obj.get_id()
             else:
                 location_id = None
-
-            # hash_list = []
-            # for hash in hashtags:
-            #     h = HashTagObj(hash)
-            #     hash_list.append(add_hashtag(h))
-            #
-            # hash_id = hash_list[0] if hash_list else None
 
             user_obj = UserObj(nomeUsuario)
             user_id = get_user(user_obj).get_id()
@@ -82,10 +76,18 @@ def get_tweets(hashtag):
             tweet_obj.set_number_likes(likes)
             tweet_obj.set_location(location_id)
             tweet_obj.set_user(user_id)
-            # tweet_obj.set_hasstag(hash_id)
             tweet_obj.set_number_retweet(retweetCount)
 
-            insert_tweet(tweet_obj)
+            id_tweet = insert_tweet(tweet_obj)
+
+            for hash in hashtags:
+                h = HashTagObj(hash["text"])
+                hash_id = add_hashtag(h)
+                insert_relation_tweet_tag(hash_id, id_tweet)
+
+
+
+
             print("------------------------------------------------------------")
             print(nomeUsuario)
             print("hash",hashtags)
