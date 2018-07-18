@@ -1,4 +1,4 @@
-from fit_test import vectorizer, modelo
+from analise.fit_test import vectorizer, modelo
 
 # instâncias de teste
 
