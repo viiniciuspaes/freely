@@ -26,14 +26,14 @@ class Feeling(Base):
     __tablename__ = "feeling"
 
     id = Column("id_feeling", Integer, primary_key=True)
-    name = Column("name", Text,  nullable=False)
+    name = Column("name", String(254),  nullable=False)
 
 
 class User(Base):
     __tablename__ = "user"
 
     id = Column("id_user", Integer, primary_key=True)
-    id_location = Column("d_local", Integer, ForeignKey(Location.id))
+    id_location = Column("d_local", Integer, ForeignKey(Location.id))  # TODO: Remove
     username = Column("username", Text, nullable=False)
 
 
@@ -51,7 +51,6 @@ class Tweet(Base):
 
     id = Column("id_tweet", Integer, primary_key=True)
     id_user = Column("id_user", Integer, ForeignKey(User.id), nullable=False)
-    id_hashtag = Column("id_hashtag", Integer,ForeignKey(HashTag.id))
     id_location = Column("id_location", Integer, ForeignKey(Location.id))
     id_feeling = Column("id_feeling", Integer, ForeignKey(Feeling.id))  # TODO: tem que ser nullable = False
     id_font = Column("id_font", Integer, ForeignKey(Font.id))

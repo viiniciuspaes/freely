@@ -1,6 +1,6 @@
 from analise.fit_test import vectorizer, modelo
 
-# instâncias de teste
+"""instâncias de teste"""
 
 testes = ['Esse governo está no início, vamos ver o que vai dar',
           'Estou muito feliz com o governo de Minas esse ano',
@@ -16,10 +16,12 @@ testes = ['Esse governo está no início, vamos ver o que vai dar',
           'Eu adoro este governo, ele está indo muito bem']
 
 
+
 # inicio dos testes a partir do modelo
-
-freq_testes = vectorizer.transform(testes)
-
+def analize(tweet_text):
+    freq_testes = vectorizer.transform([tweet_text])
+    return modelo.predict(freq_testes)
 # classificação com o modelo treinado
 
-print(modelo.predict(freq_testes))
+
+

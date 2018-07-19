@@ -1,4 +1,6 @@
 # coding: utf-8
+import re
+
 import tweepy
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -6,7 +8,9 @@ import os
 import sys
 from traceback import print_tb, extract_tb, format_list
 
+from analise.analisys_test import analize
 from controllers.db_controllers import get_location, get_user, add_hashtag
+from dao.feeling_dao import search_feeling
 from dao.hashtag_dao import insert_hashtag
 from dao.tweet_dao import insert_tweet
 from dao.tweet_hash_dao import insert_relation_tweet_tag
@@ -16,6 +20,7 @@ from models.tweet import TweetObj
 from models.user import UserObj
 from dao.user_dao import insert_user, search_user
 from utils.location_utils import search_location_by_name
+from utils.text_utils import remove_emoji, strip_all_entities
 
 
 def printError():
@@ -72,11 +77,24 @@ def get_tweets(hashtag):
             user_obj = UserObj(nomeUsuario)
             user_id = get_user(user_obj).get_id()
 
+            feeling = analize(textoTweet)
+            id_feeling = search_feeling(list(feeling)[0])[1]
+            # print(feeling)
+
+            regex_link = "(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\S"
+            textoTweet = re.sub(regex_link, "", textoTweet)
+
+
+            textoTweet = remove_emoji(textoTweet)
+
+            textoTweet = strip_all_entities(textoTweet)
+
             tweet_obj = TweetObj(textoTweet)
             tweet_obj.set_number_likes(likes)
             tweet_obj.set_location(location_id)
             tweet_obj.set_user(user_id)
             tweet_obj.set_number_retweet(retweetCount)
+            tweet_obj.set_feeling(id_feeling)
 
             id_tweet = insert_tweet(tweet_obj)
 
@@ -97,6 +115,7 @@ def get_tweets(hashtag):
             print("texto",textoTweet)
             print("retweet",retweetCount)
             print("likes",likes)
+            print("feeling:",feeling)
             print("----------------------------------- NEW TWEET -------------------------")
 
         except:
