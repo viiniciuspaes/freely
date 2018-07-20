@@ -24,4 +24,3 @@ def analize(tweet_text):
 # classificação com o modelo treinado
 
 
-
