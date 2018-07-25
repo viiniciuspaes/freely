@@ -17,3 +17,5 @@ sklearn==0.0
 SQLAlchemy==1.2.10
 SQLAlchemy-Utils==0.33.3
 Werkzeug==0.14.1
+selenium
+pymysql==0.9.1

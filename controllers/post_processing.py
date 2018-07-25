@@ -37,7 +37,7 @@ def printError():
 
 
 def get_tweets(hashtag):
-    arquivo = open('{}.txt'.format(hashtag),'r')
+    arquivo = open('controllers/{}.txt'.format(hashtag),'r')
     lista=arquivo.read().split()
     lista1=[]
     for x in range (len(lista)):

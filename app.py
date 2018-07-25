@@ -1,6 +1,6 @@
 from flask import Flask
 
-from controllers.infos import get_tweets
+from controllers.post_processing import get_tweets
 from controllers.miner import miner
 from dao.feeling_dao import create_feelings
 from database.db_helper import init
