@@ -3,12 +3,12 @@
 >Bacharelado em Sistemas de Informação - UFRPE <br>
 
 ### Índice
-  * [1) Objetivos]
-  * [2) Instalação do ambiente e execução]
-  * [3) Documentação]
-  * [4) Equipe]
-  * [5) Limitações]
-  * [6) Trabalhos futuros]
+  * [1) Objetivos](https://github.com/viiniciuspaes/freely/blob/master/README.md#objetivos)
+  * [2) Instalação do ambiente e execução](https://github.com/viiniciuspaes/freely/blob/master/README.md#instala%C3%A7%C3%A3o-do-ambiente-e-execu%C3%A7%C3%A3o)
+  * [3) Documentação](https://github.com/viiniciuspaes/freely/blob/master/README.md#documenta%C3%A7%C3%A3o)
+  * [4) Equipe](https://github.com/viiniciuspaes/freely/blob/master/README.md#equipe)
+  * [5) Limitações](https://github.com/viiniciuspaes/freely/blob/master/README.md#limita%C3%A7%C3%B5es)
+  * [6) Trabalhos futuros](https://github.com/viiniciuspaes/freely/blob/master/README.md#trabalhos-futuros)
   
 ### Objetivos
 
