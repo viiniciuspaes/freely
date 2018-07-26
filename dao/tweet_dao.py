@@ -15,7 +15,7 @@ def insert_tweet(tweet_obj):
     new_tweet.n_reply = tweet_obj.number_reply()
     new_tweet.n_retweets = tweet_obj.number_retweet()
     new_tweet.data = tweet_obj.get_data()
-    new_tweet.fake = tweet_obj.is_fake()
+    new_tweet.fake = tweet_obj.is_reliable()
     session.add(new_tweet)
     session.commit()
     session.refresh(new_tweet)

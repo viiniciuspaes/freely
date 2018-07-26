@@ -24,7 +24,6 @@ def search_user(username):
         user_query = user_query[0]
         user_obj = UserObj(user_query.username)
         user_obj.set_id(user_query.id)
-        user_obj.set_location(user_query.id_location)
         session.close()
         return user_obj
     else:
@@ -39,7 +38,6 @@ def search_user_by_id(id):
         user_query = user_query[0]
         user_obj = UserObj(user_query.username)
         user_obj.set_id(user_query.id)
-        user_obj.set_location(user_query.id_location)
         session.close()
         return user_obj
     else:

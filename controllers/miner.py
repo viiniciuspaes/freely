@@ -56,4 +56,4 @@ def miner(tm_inicio, tm_fim, hashtag):
                 print(string)
                 wArq.write(string)
             timeStampInicial = int(timeStampInicial) + passo + 1
-# miner(1531399299, 1531399305, "auladececabanco")
+# miner(1531399299, 1531399305, "Bolsonario2018")

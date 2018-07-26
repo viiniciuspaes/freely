@@ -9,7 +9,7 @@ from sklearn.model_selection import cross_val_predict
 sentimento = ['Positivo', 'Negativo', 'Neutro']
 
 """leitura do csv base, pode ser uma lista"""
-dataset = pd.read_csv('analise/tweets_base.csv', encoding='utf-8')
+dataset = pd.read_csv(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\analise\tweets_base.csv', encoding='utf-8')
 
 """visualização das colunas e seus values, para isso tire o comentário"""
 # print(dataset.count())
