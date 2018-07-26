@@ -7,18 +7,19 @@
   * [2) Instalação do ambiente e execução]
   * [3) Documentação]
   * [4) Equipe]
-  * [5) Limitações e dúvidas]
+  * [5) Limitações]
+  * [6) Trabalhos futuros]
   
 ### Objetivos
 
-- [x] Procurar tweets de acordo com hashtags relacionadas a figuras públicas e candidatos das eleições de 2018;
+- [x] Procurar tweets de acordo com hashtags relacionadas à figuras públicas e candidatos das eleições de 2018;
 - [x] Criar uma base de dados (SQL) com os tweets coletados;
 - [X] Análise de sentimentos utilizando Naive Bayes sobre os textos dos tweets;
 - [x] Construir consultas e visualizações gráficas através do bando de dados;  
 
 ### Instalação do ambiente e execução
 
-* 1.1) Primeiramente é necessário ter instalado no seu sistema:
+* 1.1) Primeiramente é necessário ter instalado no seu sistema os seguintes itens:
 
 - [x] [Python 3.4 ou superior](https://www.python.org/downloads/)
 - [x] [Google Chrome](https://www.google.com/chrome/)
@@ -74,26 +75,24 @@ Todos os documentos usados como referência durante o desenvolvimento do projeto
 - [Manoel Freitas](https://github.com/manoelfneto)<br>
 - [Vinícius Paes](https://github.com/viiniciuspaes)<br>
 
-### Limitações e dúvidas
+### Limitações
 
 * 5.1) Da coleta de dados:
-A extração dos dados pode ser pouco satisfatória. A API do Twitter, acessada através do Twepy, limita a coleta direta de tweets para somente sete dias após a coleta dos dados. Isto dificulta a coleta de dados históricos. Uma alternativa que auxilia nesta coleta é o Selenium, ferramenta de autamização para uso de web browsers. Este caminho facilita bastante na coleta, agora podendo realizar consultas histórias, mas deixa este processo mais lento, tendo em vista que cada busca no Twitter necessita de um navegador aberto.
-* 5.1.1) Possível solução:
-Usando Jupyter Notebook com vários notebooks rodando ao mesmo tempo
+A API do Twitter, acessada através do Twepy, limita a coleta direta de tweets para somente sete dias a partir da data da consulta realizada. Isto dificulta a coleta de dados históricos, as limitações sobre as datas foi um empecilho inicial. Uma alternativa de auxílio nesta coleta é o Selenium, ferramenta de autamização para uso em web browsers. Por meio do Selenium a coleta se torna, agora podendo realizar consultas histórias mas deixa a extração mais lenta, tendo em vista que cada busca no Twitter necessita do navegador aberto.
 
 * 5.2) Da análise de sentimento:
-Problemas com os percentuais e as métricas, acurácia, etc
-Problemas de linguagem de pt/en
-
-* 5.2.1) Possível solução:
- LinguaKit, lib em Perl, mas com os problemas encontrados se tornou na verdade uma barreira utilizar o LinguaKit
+O Scikit-Learn permite analisar métricas, como validação cruzada e de medição de acurácia do modelo. Foram eleitas algumas métricas e através delas percebe-se que o modelo precisa ser melhorado. Isto ocorre por diversos fatores, dos quais a equipe não conseguiu identificar ou explorar estas limitações. Levando em consideração também o primeiro contato com técnicas de análise de texto e análise de sentimento o modelo usado é simples e tenta ser o mais prático possível para um projeto realizado dentro de uma disciplina.
  
-* 5.3) Do período e tempo de desenvolvimento:
-Com mais tempo e um cronograma mais organizado a ideia do projeto poderia ser melhor analisada. Desde a escolha das ferramentas até a apresentação dos resultados, o tempo para realização de todas as etapas não é o suficiente para criar uma ferramenta realmente completa e que abranja diversos casos.
+* 5.3) Período de desenvolvimento:
+O tempo e um cronograma limitam também as possibilidades para finalização do projeto. Desde a escolha das ferramentas até a apresentação dos resultados, o tempo para realização de todas as etapas não foi o suficiente para criar uma ferramenta realmente completa e que abranjisse uma gama realmente grande de usos.
 
 * 5.4) Demais limitações e possíveis dúvidas:
-Levando em consideração a construção do projeto, desde sua concepção como ideia até o momento até o seu desenvolvimento atual diversas limitações foram encontradas. Limitações instrumentais ou de tempo, pontos que não foram abordados durante a construção e modelagem do projeto. Este projeto chega neste ponto apresentando limitações, que mesmo com o escopo reduzido ainda não sabemos ao certo até que ponto as limitações encontradas até o momento realmente afetam o uso geral do projeto como ferramenta.
-Deste ponto nós, a equipe de desenvolvimento deixamos aberta a discussão e prosseguimento do projeto para sua continuidade ou não. Novos problemas, dúvidas, soluções e melhorias podem ser feitas e são encorajadas.
+Levando em consideração a construção do projeto, desde sua concepção como ideia até o momento de seu desenvolvimento atual, diversas limitações foram encontradas: limitações instrumentais ou de tempo, pontos que não foram abordados durante a construção e modelagem do projeto e afins. Com um escopo reduzido a equipe não sabe ao certo até que ponto as limitações encontradas até o momento realmente afetam o uso geral do projeto como ferramenta. Deste ponto a equipe de desenvolvimento deixa aberta a discussão e prosseguimento do projeto para sua continuidade ou não. Novos problemas, soluções e melhorias podem ser feitas e são encorajadas.
 
-* 5.5) Contato sobre qualquer tema relacionado ao projeto:
-[pbd2018[dot]1[at]gmail[dot]com](mailto:pbd2012.1@gmail.com)
+### Trabalhos futuros
+
+* 6.1) Usando notebooks para coleta:
+No ponto 5.1 identificamos algumas limitações da coleta. Usando Jupyter Notebook poderíamos abrir várias intâncias, vários notebooks que realizariam consultas simultâneas virtualmente. Este método não pôde ser implementado por falta de conhecimento da ferramenta, as datas de entrega não permitiram uma maior exploração do Jupyter Notebook.
+
+* 6.2) LinguaKit:
+O LinguaKit é uma ferramenta de análise multilinguagem. É um projeto desenvolvido em Perl e tem repositório [público](https://github.com/citiususc/Linguakit). Através da documentação disponibilizada podemos realizar consultas e testar os seus módulos, um deles realiza análise de sentimentos. O LinguaKit já suporta português, facilitando assim a análise. Numa continuação do projeto seria ideal testar mais a base do LinguaKit e suas métricas, avaliando sua acurácia, melhorando assim o modelo para análise de sentimentos.
