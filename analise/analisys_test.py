@@ -16,11 +16,7 @@ testes = ['Esse governo está no início, vamos ver o que vai dar',
           'Eu adoro este governo, ele está indo muito bem']
 
 
-
 # inicio dos testes a partir do modelo
 def analize(tweet_text):
     freq_testes = vectorizer.transform([tweet_text])
     return modelo.predict(freq_testes)
-# classificação com o modelo treinado
-
-
