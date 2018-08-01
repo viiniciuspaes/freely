@@ -90,8 +90,11 @@ def get_tweets(hashtag):
             font = search_font(font)
             if font:
                 reliability = font.is_reliable()
+                id_font = font.get_id()
+
             else:
                 reliability = True
+                id_font = None
 
             tweetDate = str(tweetDate.year) + "/" + str(tweetDate.month) + "/" + str(tweetDate.day)
 
@@ -100,6 +103,8 @@ def get_tweets(hashtag):
             textoTweet = strip_all_entities(textoTweet)
 
             tweet_obj = TweetObj(textoTweet)
+
+            tweet_obj.set_font(id_font)
             tweet_obj.set_number_likes(likes)
             tweet_obj.set_location(location_id)
             tweet_obj.set_user(user_id)
