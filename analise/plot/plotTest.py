@@ -2,49 +2,54 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 
-# Example data
 dataset = pd.read_csv('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv', encoding='utf-8')
-# print(dataset.count())
 
-hashtags = dataset['hashtag'].values
-# print(type(hashtags))
+hashtags = dataset['Hashtag'].values
+valores = dataset['Tweets'].values
 
-valores = dataset['tweets'].values
-# print(valores)
+dic = {'tags' : hashtags, 'val' : valores }
 
-dic = {'tag' : hashtags, 'val' : valores }
+def gerarGraficoBarras(pathData):
+    dataset = pd.read_csv(pathData, encoding='utf-8')
 
-teste = pd.DataFrame(data=dic)
-teste.sort_values('val')
-teste.set_index('tag', inplace=True)
-bar = teste.plot(kind='pie', subplots=True)
+    hashtags = dataset['Hashtag'].values
+    valores = dataset['Tweets'].values
+
+    dic = {'Nome das hashtags' : hashtags, 'Número de tweets coletados' : valores }
+
+    df = pd.DataFrame(data=dic)
+    df = df.sort_values('Número de tweets coletados', ascending=False)
+    df.set_index('Nome das hashtags', inplace=True)
+    ax = df.plot.bar(y='Número de tweets coletados', legend=False)
+    ax.set_ylabel('quantidade absoluta')
+    ax.set_xlabel('nome das hashtags')
+    plt.title('Quantidade de tweets coletados por hashtag')
+    plt.xticks(np.arange(0, len(hashtags), step=1), rotation=30)
+    plt.subplots_adjust(top=0.926, bottom=0.195, left=0.074, right=0.981, hspace=0.2, wspace=0.2)
+    plt.show()
+
+# plotGraficoBarras('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
+
+df = pd.Series.to_frame(dataset['Hashtag'].value_counts())
+print(df)
+# df.set_index('tags', inplace=True)
+# ax = df.plot.pie(subplots=True, autopct='%1.1f%%', legend=False, figsize=(8, 8))
 # plt.show()
-var = teste.to_csv('new2.csv')
-# y = np.arange(len(hashtags))
-# er = np.arange(1,5)
 
-# ax.barh(y, valores, align='center',
-#         color='blue', ecolor='gray')
-# ax.set_yticks(y)
-# ax.set_yticklabels(hashtags)
-# ax.invert_yaxis()
-# ax.set_xlabel('Hashtags')
-# ax.set_title('Hashtags e suas quantidades coletadas')
+labels = list(hashtags)
+vals = list(valores)
 
-# fig, ax = plt.subplots()
-# plt.bar(hashtags, valores)
+colors = ['#ff9999','#66b3ff','#99ff99','#ffcc99']
 
-# people = ('Tom', 'Dick', 'Harry', 'Slim', 'Jim')
-# y_pos = np.arange(len(people))
-# performance = 3 + 10 * np.random.rand(len(people))
-# error = np.random.rand(len(people))
+fig1, ax1 = plt.subplots()
 
-# ax.barh(y_pos, performance, xerr=error, align='center',
-#         color='green', ecolor='black')
-# ax.set_yticks(y_pos)
-# ax.set_yticklabels(people)
-# ax.invert_yaxis()  # labels read top-to-bottom
-# ax.set_xlabel('Performance')
-# ax.set_title('How fast do you want to go today?')
+ax1.pie(vals, colors = colors, labels=labels, 
+        autopct='%1.1f%%', startangle=90)
 
+centre_circle = plt.Circle((0,0),0.70, fc='white')
+fig = plt.gcf()
+fig.gca().add_artist(centre_circle)
+
+ax1.axis('equal')
+plt.tight_layout()
 # plt.show()
