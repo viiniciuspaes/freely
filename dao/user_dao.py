@@ -1,4 +1,4 @@
-from database.db_helper import get_session, User
+from database.db_helper import get_session, User, get_engine
 from models.user import UserObj
 
 
@@ -43,3 +43,39 @@ def search_user_by_id(id):
     else:
         session.close()
         return None
+
+
+def create_users():
+    con = get_engine()
+    rs = con.execute("""insert into user(username) values
+  ("roxmo"),
+  ("DaniloGentili"),
+  ("Jornalivre_BR"),
+  ("brasilpensa"),
+  ("diariodobrasil"),
+  ("epoca"),
+  ("catracalivre"),
+  ("diplomatique"),
+  ("piaui"),
+  ("superinteressante"),
+  ("uol"),
+  ("ne10"),
+  ("r7"),
+  ("bbc"),
+  ("cartacapital"),
+  ("diariodepernambuco"),
+  ("estadao"),
+  ("folha"),
+  ("jornaldocomercio"),
+  ("elpais"),
+  ("exame"),
+  ("veja"),
+  ("g1"),
+  ("istoe"),
+  ("oglobo"),
+  ("terra"),
+  ("JornalistasLivres"),
+  ("VejaSP"),
+  ("VejaRJ"),
+  ("sensacionalista"),
+  ("mblivre");""")

@@ -1,4 +1,4 @@
-from database.db_helper import get_session, Font
+from database.db_helper import get_session, Font, get_engine
 from models.font import FontObj
 
 
@@ -34,3 +34,39 @@ def search_font(font_obj):
     else:
         session.close()
         return None
+
+
+def create_fonts():
+    con = get_engine()
+    rs = con.execute("""insert into font(id_user, url, trust) VALUE
+  (1, null, FALSE),
+  (2, null, FALSE),
+  (3, "https://jornalivre.com", FALSE),
+  (4, "https://pensabrasil.com", FALSE),
+  (5, "https://www.diariodobrasil.org", FALSE),
+  (6, "https://epoca.globo.com/", TRUE),
+  (7, "https://catracalivre.com.br/", TRUE),
+  (8, "https://diplomatique.org.br/", TRUE),
+  (9, "https://piaui.folha.uol.com.br/", TRUE),
+  (10, "https://super.abril.com.br/", TRUE ),
+  (11, "https://www.uol.com.br/", TRUE ),
+  (12, "https://ne10.uol.com.br/", TRUE),
+  (13, "https://www.r7.com/", TRUE),
+  (14, "https://www.bbc.com/portuguese/brasil", TRUE),
+  (15, "https://www.cartacapital.com.br/", TRUE),
+  (16, "https://www.diariodepernambuco.com.br", TRUE),
+  (17, "https://www.estadao.com.br/", TRUE),
+  (18, "https://www.folha.uol.com.br/", TRUE),
+  (19, "https://www.jornaldocomercio.com/", TRUE),
+  (20, "https://brasil.elpais.com/", FALSE ),
+  (21, "https://exame.abril.com.br", TRUE),
+  (22, "https://veja.abril.com.br/", TRUE),
+  (23, "https://g1.globo.com/", TRUE),
+  (24, "https://istoe.com.br/",TRUE),
+  (25, "https://oglobo.globo.com/", TRUE),
+  (26, "https://www.terra.com.br/", TRUE),
+  (27, null, TRUE),
+  (28, null, TRUE),
+  (29, null, TRUE),
+  (30,"https://www.sensacionalista.com.br", FALSE ),
+  (31, "http://mbl.org.br", FALSE ); """)
