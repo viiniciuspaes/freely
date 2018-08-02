@@ -109,6 +109,6 @@ def gerar_grafico_sentimento(pathData):
     plt.show()
 
 
-# gerarGraficoBarras('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
-# gerarGraficoPizza('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
-# gerar_grafico_sentimento('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
+gerar_grafico_barras('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
+gerar_grafico_pizza('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
+gerar_grafico_sentimento('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
