@@ -53,14 +53,33 @@ $ pip install -r requirements.txt
 ```
 $ pip install <nome_da_biblioteca>
 ``` 
-* 1.x) No XAMP é necessário iniciar o MySQL -> iniciar MySQL
-* 1.xx) Mudar endereço da conta de acesso ao banco ->
-* 1.x) Mudar endereço dos arquivos pelos PATH
-* 1.6) Após isso inicie a API dentro do repositório do projeto pelo terminal ou cmd com o comando:
+* 1.6) Com os requisitos instalados corretamente é necessário iniciar o MySQL pelo XAMP.
+
+* 1.7) É necessário verificar no arquivo [db_helper.py](https://github.com/viiniciuspaes/freely/blob/master/database/db_helper.py), localizado na pasta database, as credênciais do banco de dados. O padrão utilizado é:
+```
+usuário = "root"
+senha = ""
+endereço = "localhost"
+```
+Caso queira alterar os valores acima é preciso modificar os valores entre aspas nas linhas 81, 82 e 83 do db_helper.py .
+
+* 1.8) Por padrão, qualquer arquivo que está sendo utilizado no projeto está sendo encaminhado através do seu caminho relativo. No Windows pode ocorrer problemas com este uso, sendo ideal a passagem do caminho completo do arquivo da seguinte maneira:
+```
+driver = webdriver.Chrome(executable_path=r"C:\Users\user\Doc\PytonProjects\freely\controllers\chromedriver.exe")
+```
+Neste exemplo nós estamos referenciando um arquivo "chromedriver.exe" através do seu caminho completo. Lembrando sempre que no caso da barra invertida deve-se colocar a letra "r" antes do caminho, como no exemplo. É necessário verificar o caminho do arquivo a seguir para evitar erros:
+
+-[x] ["chromedriver.exe" na linha 12 do miner.py, na pasta controllers](https://github.com/viiniciuspaes/freely/blob/master/controllers/miner.py)
+
+* 1.6) Após isso, através do cmd/terminal, acesse a pasta onde o repositório foi salvo. Tendo cumprindo todos os passos e com as instalações dos requerimentos do passo 1.5 feitas corretamente, execute o seguinte comando no cmd ou terminal:
 ```
 $ python app.py
 ``` 
-* 1.7) Iniciando a API todas as operaçõas definidas no sistema tem início: da extração dos dados e seus tratamentos até a análise de sentimentos. O intuito com essa estrutura é facilitar a utilização e a modularização do sistema.
+* 1.7) Iniciando a API, com o banco conectado através do XAMP, agora pode-se acessar através do navegador o servidor do Flask, em local host, pelo endereço:
+```
+http://127.0.0.1:5000
+```
+
 
 ### Documentação
 
