@@ -108,10 +108,10 @@ O Scikit-Learn permite analisar métricas, como validação cruzada e de mediç�
 * 5.3) Período de desenvolvimento:
 O tempo e um cronograma limitam também as possibilidades para finalização do projeto. Desde a escolha das ferramentas até a apresentação dos resultados, o tempo para realização de todas as etapas não foi o suficiente para criar uma ferramenta realmente completa e que cobriría uma gama realmente grande de usos, idealizada pela equipe.
 
-* 5.5) Da classificação de fontes e FakeNews:
+* 5.4) Da classificação de fontes e FakeNews:
 Com o tempo decorrido e as pesquisas feitas o entregue foi a classificação de fontes através de perfis no Twitter ou páginas compartilhadas de maneira manual, isso levando em consideração pesquisas [encontradas](https://arxiv.org/pdf/1712.05999.pdf). Métodos de automação deste módulo não foram bem sucedidos e descontinuados devido ao tempo de desenvolvimento não ser o suficiente para realização de testes mais profundos. Pesquisas também sobre APIs abertas que fizessem uma classificação de  notícias não tiveram um resultado satisfatório.
 
-* 5.4) Demais limitações e possíveis dúvidas:
+* 5.5) Demais limitações e possíveis dúvidas:
 Levando em consideração a construção do projeto, desde sua concepção como ideia até o momento de seu desenvolvimento atual, diversas limitações foram encontradas: limitações instrumentais ou de tempo, pontos que não foram abordados durante a construção e modelagem do projeto e afins. Com um escopo reduzido a equipe não sabe ao certo até que ponto as limitações encontradas até o momento realmente afetam o uso geral do projeto como ferramenta. Deste ponto a equipe de desenvolvimento deixa aberta a discussão e prosseguimento do projeto para sua continuidade ou não. Novos problemas, soluções e melhorias podem ser feitas e são encorajadas.
 
 ### Trabalhos futuros
