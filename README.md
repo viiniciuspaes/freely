@@ -69,7 +69,7 @@ driver = webdriver.Chrome(executable_path=r"C:\Users\user\Doc\PytonProjects\free
 ```
 Neste exemplo nós estamos referenciando um arquivo "chromedriver.exe" através do seu caminho completo. Lembrando sempre que no caso da barra invertida deve-se colocar a letra "r" antes do caminho, como no exemplo. É necessário verificar o caminho do arquivo a seguir para evitar erros:
 
--[x] ["chromedriver.exe" na linha 12 do miner.py, na pasta controllers](https://github.com/viiniciuspaes/freely/blob/master/controllers/miner.py)
+- [x] ["chromedriver.exe" na linha 12 do miner.py, na pasta controllers](https://github.com/viiniciuspaes/freely/blob/master/controllers/miner.py)
 
 * 1.6) Após isso, através do cmd/terminal, acesse a pasta onde o repositório foi salvo. Tendo cumprindo todos os passos e com as instalações dos requerimentos do passo 1.5 feitas corretamente, execute o seguinte comando no cmd ou terminal:
 ```
