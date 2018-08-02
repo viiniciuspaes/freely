@@ -79,7 +79,7 @@ $ python app.py
 ```
 http://127.0.0.1:5000
 ```
-A página carregada mostrar alguns gráficos construídos em cima da coleta dos tweets e também da análise de sentimento feita com base nas hashtags e os textos dos tweets.
+A página carregada mostrará alguns gráficos construídos em cima da coleta dos tweets e também da análise de sentimento feita com base nas hashtags e os textos dos tweets.
 
 ### Documentação
 
