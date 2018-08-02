@@ -86,13 +86,25 @@ O Scikit-Learn permite analisar métricas, como validação cruzada e de mediç�
 * 5.3) Período de desenvolvimento:
 O tempo e um cronograma limitam também as possibilidades para finalização do projeto. Desde a escolha das ferramentas até a apresentação dos resultados, o tempo para realização de todas as etapas não foi o suficiente para criar uma ferramenta realmente completa e que abranjisse uma gama realmente grande de usos.
 
+* 5.5) Da classificação de fontes e FakeNews:
+Com o tempo decorrido e as pesquisas feitas o possível a ser entregue foi a classificação de fontes através de perfis no Twitter ou páginas compartilhas de maneira manual, isso levando em consideração pesquisas [encontrada](https://arxiv.org/pdf/1712.05999.pdf). Métodos de automação deste módulo não foram bem sucedido e descontinuados devido ao tempo de desenvolvimento não ser o suficiente para dar continuidade. Pesquisas também sobre APIs abertas que fizessem uma classificação de  notícias não tiveram um resultado satisfatório.
+
 * 5.4) Demais limitações e possíveis dúvidas:
 Levando em consideração a construção do projeto, desde sua concepção como ideia até o momento de seu desenvolvimento atual, diversas limitações foram encontradas: limitações instrumentais ou de tempo, pontos que não foram abordados durante a construção e modelagem do projeto e afins. Com um escopo reduzido a equipe não sabe ao certo até que ponto as limitações encontradas até o momento realmente afetam o uso geral do projeto como ferramenta. Deste ponto a equipe de desenvolvimento deixa aberta a discussão e prosseguimento do projeto para sua continuidade ou não. Novos problemas, soluções e melhorias podem ser feitas e são encorajadas.
 
 ### Trabalhos futuros
 
-* 6.1) Usando notebooks para coleta:
-No ponto 5.1 identificamos algumas limitações da coleta. Usando Jupyter Notebook poderíamos abrir várias intâncias, vários notebooks que realizariam consultas simultâneas virtualmente. Este método não pôde ser implementado por falta de conhecimento da ferramenta, as datas de entrega não permitiram uma maior exploração do Jupyter Notebook.
+* 6.1) Usando notebooks para coleta(paralelização de tarefas):
+No ponto 5.1 identificamos algumas limitações da coleta. Usando Jupyter Notebook poderíamos abrir várias intâncias, notebooks que realizariam consultas simultâneas virtualmente. Este método não pôde ser implementado por falta de conhecimento da ferramenta, as datas de entrega não permitiram uma maior exploração do Jupyter Notebook. Se a realização das tarefas pudesse ser feita paralelamente o processo todo seria agilizado.
 
-* 6.2) LinguaKit:
+* 6.2) LinguaKit(método de classificação de sentimento):
 O LinguaKit é uma ferramenta de análise multilinguagem. É um projeto desenvolvido em Perl e tem repositório [público](https://github.com/citiususc/Linguakit). Através da documentação disponibilizada podemos realizar consultas e testar os seus módulos, um deles realiza análise de sentimentos. O LinguaKit já suporta português, facilitando assim a análise. Numa continuação do projeto seria ideal testar mais a base do LinguaKit e suas métricas, avaliando sua acurácia, melhorando assim o modelo para análise de sentimentos.
+
+* 6.3) Botometer(ferramentas de reconhecimento de conhecimento):
+O [Botometer](https://botometer.iuni.iu.edu/#!/) é um algoritmo de aprendizado de máquina que consegue classificar uma conta no Twitter como sendo uma pessoa real ou um bot. Com sua API sendo aberta pode-se ampliar a gama de busca de fakes no Twitter e também melhorar os módulos de automação para classificação da aplicação.
+
+* 6.4) Classificação de FakeNews e reprodução de notícias:
+A classificação literal de uma notícia falsa leva em consideração muitas variáveis. Quem compartilha, quais as fontes, em que plataformas são divulgadas, e várias coisas mais. Essas variáveis são difíceis de classificar automaticamente, mas já existem estudos, APIs e plataformas para o auxílio do reconhecimento de FakeNews, como exemplo o [Fato ou Fake](https://g1.globo.com/fato-ou-fake/), do G1. Uma possível melhoria, ou pesquisa para o futuro, seria uma catalogação de plataformas, ferramentas e afins. Com isto é possível visualizar melhor o que pode ser feito sobre classificação de FakeNews e o que pode-se usar nos dias atuais.
+
+* 6.5) Matplotlib e Pandas(ciência de dados e visualização):
+O [Matplotlib](https://matplotlib.org/) e o [Pandas](https://pandas.pydata.org/) são ferramentas muito boas para auxílio no tratamento de dados. Somando isso com estudo de dados e a visualização gráfica, o intuito disto seria aperfeiçoas as análises feitas através de demonstrações visuais de alta capacidade para o usuário.
