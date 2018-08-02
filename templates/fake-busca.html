@@ -28,8 +28,9 @@
 
     <div id="menu" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar">
-        <li><a href="tweet-busca.php">Procurar por tweet</a></li>
-        <li><a href="fake-busca.php">Procurar por FakeNews</a></li>
+        <li><a href="{{ url_for('Index') }}">Procurar por Hashtag </a></li>
+        <li><a href="{{ url_for('QuantidadeTweets') }}">Gráfico de HashTag/Tweet</a></li>
+        <li><a href="{{ url_for('PesquisaFonte') }}">Gráfico de Sentimentos/Tweet</a></li>
         <li><a href="#">&nbsp;</a></li>
       </ul><!-- /.nav -->
     </div><!-- /.navbar-collapse -->

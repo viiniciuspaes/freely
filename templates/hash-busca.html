@@ -31,8 +31,9 @@
 
     <div id="menu" class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar">
-        <li><a href="/">Procurar por Hashtag </a></li>
-        <li><a href="fake-busca.html">Procurar por FakeNews</a></li>
+        <li><a href="{{ url_for('Index') }}">Procurar por Hashtag </a></li>
+        <li><a href="{{ url_for('QuantidadeTweets') }}">Gráfico de HashTag/Tweet</a></li>
+        <li><a href="{{ url_for('PesquisaFonte') }}">Gráfico de Sentimentos/Tweet</a></li>
       </ul><!-- /.nav -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
@@ -69,15 +70,13 @@
             </div>
               <div class="box-user-profile">
                 <div class="profile">
-                  <!--
-                  <div class="media-body media-middle">
+
+                  <div hidden class="media-body media-middle">
                     <div class="row">
                       <div class="info-user">
-                        <header><h2 class="media-heading">Usuario Destaque {{TAG}}</h2></header>
-                        <span class="info-sexo">Nick</br></br></span>
-                        <span class="info-orientacao">N Tweets | N Retweets | N replys</br></span><br/>
-                        <span class="info-idade">Majoramente SENTIMENTO HASHTAG</br></span>
-                      </div>--><!-- /.desc-user -->
+                        <header><h1 class="media-heading" align="justify">No campo acima você pode escolher as Hashtags que temos na nossa base.</h1></header>
+
+                      </div><!-- /.desc-user -->
 
                     </div><!-- /.row -->
                   </div><!-- /.media-body -->
@@ -91,11 +90,11 @@
 
     <div class="box-lista-quente">
       <header>
-         <h2>Tabela Sentimento</h2> 
+         <h2>Gráfico de Sentimento</h2> 
       </header>
       <div class="profile media">
-        <div class="media-left">
-           <figure><img class="media-object " src="../static/img/{{TAG}}.png" alt="..."></figure>
+        <div class="media-left"><!--../static/img/{{TAG}}.png-->
+           <figure><img class="media-object " src="../static/img/imagem-um.png" alt="..."></figure>
         </div>
 
       </div><!-- /.profile -->

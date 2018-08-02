@@ -43,9 +43,9 @@ def PesquisaHash():
 def PesquisaFonte():
     return render_template('fonte-busca.html')
 
-@app.route('/fonte-busca', methods={'POST','GET'})
-def PesquisaFonte():
-    return render_template('fonte-busca.html')
+@app.route('/quantidade-tweets', methods={'POST','GET'})
+def QuantidadeTweets():
+    return render_template('quantidade-tweets.html')
     
 if __name__ == '__main__':
     app.run()
