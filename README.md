@@ -66,10 +66,10 @@ $ python app.py
 
 Todos os documentos usados como referência durante o desenvolvimento do projeto estão disponíveis para acesso nos itens abaixo.
 
-* [Documento de casos de uso](https://drive.google.com/open?id=1OEzvLkxBw_MOFRknqc1yCeZPg0tvCIMK)
-* [Diagrama ER](https://drive.google.com/open?id=1OEzvLkxBw_MOFRknqc1yCeZPg0tvCIMK)
-* [Modelo lógico do BD](https://drive.google.com/open?id=1OEzvLkxBw_MOFRknqc1yCeZPg0tvCIMK)
-* [Script SQL](https://drive.google.com/open?id=1OEzvLkxBw_MOFRknqc1yCeZPg0tvCIMK)
+* [Documento de casos de uso](https://drive.google.com/open?id=1NjK3JTpw0MjimRbSNqUANL1y-j7juYI8)
+* [Diagrama ER](https://drive.google.com/open?id=1nxWzu9YhKJBV49E34CKFyUv0M9RZIgsg)
+* [Modelo lógico do BD](https://drive.google.com/open?id=1H8sDyxHKJmePFIiRZaIDT7AZJmGPhIbj)
+* [Script SQL](https://drive.google.com/open?id=1N5iPoI7fup40Db_rS4G7J3tRTofpuc9l)
 
 ### Equipe
 
