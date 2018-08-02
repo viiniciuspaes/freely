@@ -7,14 +7,14 @@ from dao.tweet_hash_dao import n_tweets_hash
 
 
 def save_data(data):
-    with open('data.csv', 'w') as new_file:
+    with open('data.csv', 'w', newline='') as new_file:
         fieldnames = ['Hashtag', 'Tweets', 'Positivo', 'Negativo', 'Neutro']
+        csv_writer = csv.DictWriter(new_file, fieldnames=fieldnames)
 
-        csv_writer = csv.writer(new_file, delimiter=',')
+        csv_writer.writerow({'Hashtag': 'Hashtag','Tweets': 'Tweets', 'Positivo': 'Positivo', 'Negativo': 'Negativo', 'Neutro': 'Neutro'})
 
-        csv_writer.writerow('Hashtag' + "," + 'Tweets' + " ," + 'Positivo' + "," + 'Negativo' + "," + 'Neutro')
         for x in data:
-            csv_writer.writerow(x)
+            csv_writer.writerow({'Hashtag': x[0],'Tweets': x[1], 'Positivo': x[2], 'Negativo': x[3], 'Neutro': x[4]})
 
 
 def get_data():
@@ -28,7 +28,7 @@ def get_data():
         neutral_tweets = n_tweets_feeling(3, n)
         hash_name = search_hashtag_by_id(n)
 
-        line = str(hash_name) + "," + str(n_tweets) + "," + str(positive_tweets) + "," + str(neg_tweets) + "," + str(neutral_tweets)
+        line = [str(hash_name), int(n_tweets), int(positive_tweets), int(neg_tweets), int(neutral_tweets)]
         output.append(line)
 
     arq.close()
