@@ -80,19 +80,22 @@ def get_tweets(hashtag):
 
             feeling = analize(textoTweet)
             id_feeling = search_feeling(list(feeling)[0])[1]
+            try:
+                regex_link = "(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\S"
+                regex = re.compile(regex_link)
+                url = regex.search(textoTweet).group(0)
+                font = FontObj()
+                font.set_url(url)
+                font.set_user(user_id)
+                font = search_font(font)
+                if font:
+                    reliability = font.is_reliable()
+                    id_font = font.get_id()
 
-            regex_link = "(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\S"
-            regex = re.compile(regex_link)
-            url = regex.search(textoTweet).group(0)
-            font = FontObj()
-            font.set_url(url)
-            font.set_user(user_id)
-            font = search_font(font)
-            if font:
-                reliability = font.is_reliable()
-                id_font = font.get_id()
-
-            else:
+                else:
+                    reliability = True
+                    id_font = None
+            except:
                 reliability = True
                 id_font = None
 

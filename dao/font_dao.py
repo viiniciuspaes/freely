@@ -70,10 +70,11 @@ def create_fonts():
   (29, null, TRUE),
   (30,"https://www.sensacionalista.com.br", FALSE ),
   (31, "http://mbl.org.br", FALSE ),
-  (32, "https://www.revistaforum.com.br/", TRUE),
-  (33, "https://www.folhape.com.br/", TRUE),
-  (34, "https://gpslifetime.com.br/", TRUE),
-  (35 "http://ultimosegundo.ig.com.br/", FALSE),
-  (36, "https://poraqui.com/", TRUE),
-  (37, "http://midianinja.org/", FALSE),
-  (38, "https://www.diariodocentrodomundo.com.br/", FALSE);""")
+  (null , "https://www.revistaforum.com.br/", TRUE),
+  (null , "https://www.folhape.com.br/", TRUE),
+  (null , "https://gpslifetime.com.br/", TRUE),
+  (null , "http://ultimosegundo.ig.com.br/", FALSE),
+  (null , "https://poraqui.com/", TRUE),
+  (null , "http://midianinja.org/", FALSE),
+  (null , "https://www.diariodocentrodomundo.com.br/", FALSE)
+  on duplicate KEY UPDATE id_user=id_user; """)

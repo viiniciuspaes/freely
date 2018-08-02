@@ -16,18 +16,18 @@ create_feelings()
 create_users()
 create_fonts()
 
-start = time.mktime(datetime.datetime.strptime("01/03/2018", "%d/%m/%Y").timetuple())
+start = time.mktime(datetime.datetime.strptime("28/07/2018", "%d/%m/%Y").timetuple())
 end = time.mktime(datetime.datetime.strptime("31/07/2018", "%d/%m/%Y").timetuple())
 
 
-arq = open('hashtags.txt', 'r')
-lines = arq.readlines()
-for hashtag in lines:
-    hashtag = hashtag.replace("\n", "")
-    miner(start, end, hashtag)
-    get_tweets(hashtag)
-
-arq.close()
+# arq = open('hashtags.txt', 'r')
+# lines = arq.readlines()
+# for hashtag in lines:
+#     hashtag = hashtag.replace("\n", "")
+#     miner(start, end, hashtag)
+#     get_tweets(hashtag)
+#
+# arq.close()
 save_data(get_data())
 
 @app.route('/')

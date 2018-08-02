@@ -27,9 +27,10 @@ def insert_tweet(tweet_obj):
 def n_tweets_feeling(id_feeling, id_hashtag):
     session = get_session()
     session = session()
-    feeling_query = session.query(Tweet, TagTweet).filter(Tweet.id_feeling == id_feeling and id_hashtag == TagTweet.id_hashtag and Tweet.id == TagTweet.id_tweet).all()
+    feeling_query = session.query(Tweet).filter(Tweet.id_feeling == id_feeling).join(TagTweet).filter(TagTweet.id_hashtag == id_hashtag).all()
     if feeling_query:
         number = len(feeling_query)
+        print(feeling_query)
         return number
     else:
         session.close()
