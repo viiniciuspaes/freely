@@ -69,4 +69,5 @@ def create_fonts():
   (28, null, TRUE),
   (29, null, TRUE),
   (30,"https://www.sensacionalista.com.br", FALSE ),
-  (31, "http://mbl.org.br", FALSE ); """)
+  (31, "http://mbl.org.br", FALSE )
+  on duplicate key update id_user=id_user; """)

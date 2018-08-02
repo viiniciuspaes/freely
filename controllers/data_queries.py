@@ -10,8 +10,9 @@ def save_data(data):
     with open('data.csv', 'w') as new_file:
         fieldnames = ['Hashtag', 'Tweets', 'Positivo', 'Negativo', 'Neutro']
 
-        csv_writer = csv.writer(new_file, fieldnames=fieldnames, delimiter=',')
+        csv_writer = csv.writer(new_file, delimiter=',')
 
+        csv_writer.writerow('Hashtag' + "," + 'Tweets' + " ," + 'Positivo' + "," + 'Negativo' + "," + 'Neutro')
         for x in data:
             csv_writer.writerow(x)
 
@@ -27,7 +28,7 @@ def get_data():
         neutral_tweets = n_tweets_feeling(3, n)
         hash_name = search_hashtag_by_id(n)
 
-        line = hash_name + "," + n_tweets + "," + positive_tweets + "," + neg_tweets + "," + neutral_tweets
+        line = str(hash_name) + "," + str(n_tweets) + "," + str(positive_tweets) + "," + str(neg_tweets) + "," + str(neutral_tweets)
         output.append(line)
 
     arq.close()

@@ -12,7 +12,7 @@ from database.db_helper import init
 
 app = Flask(__name__)
 
-init(True)
+init(False)
 create_feelings()
 create_users()
 create_fonts()

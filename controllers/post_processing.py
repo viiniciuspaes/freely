@@ -39,7 +39,7 @@ def printError():
 
 
 def get_tweets(hashtag):
-    arquivo = open(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\controllers/{}.txt'.format(hashtag),'r')
+    arquivo = open(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\controllers\{}.txt'.format(hashtag),'r')
     lista = arquivo.read().split()
     lista1=[]
     for x in range(len(lista)):

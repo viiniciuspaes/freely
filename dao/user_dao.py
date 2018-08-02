@@ -47,7 +47,7 @@ def search_user_by_id(id):
 
 def create_users():
     con = get_engine()
-    rs = con.execute("""insert into user(username) values
+    rs = con.execute("""insert into user (username) values
   ("roxmo"),
   ("DaniloGentili"),
   ("Jornalivre_BR"),
@@ -78,4 +78,5 @@ def create_users():
   ("VejaSP"),
   ("VejaRJ"),
   ("sensacionalista"),
-  ("mblivre");""")
+  ("mblivre")
+  on duplicate key update username=username;""")
