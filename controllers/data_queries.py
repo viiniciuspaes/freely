@@ -21,14 +21,15 @@ def get_data():
     arq = open('hashtags.txt', 'r')
     lines = arq.readlines()
     output = []
-    for n in range(1,len(lines)+1):
-        n_tweets = n_tweets_hash(n)
-        positive_tweets = n_tweets_feeling(1, n)
-        neg_tweets = n_tweets_feeling(2, n)
-        neutral_tweets = n_tweets_feeling(3, n)
-        hash_name = search_hashtag_by_id(n)
+        for hash in lines:
+        hash = hash.replace("\n", "")
+        id_hash = search_hashtag(id_hash).get_id()
+        n_tweets = n_tweets_hash(id_hash)
+        positive_tweets = n_tweets_feeling(1, id_hash)
+        neg_tweets = n_tweets_feeling(2, id_hash)
+        neutral_tweets = n_tweets_feeling(3, id_hash)
 
-        line = [str(hash_name), int(n_tweets), int(positive_tweets), int(neg_tweets), int(neutral_tweets)]
+        line = [str(hash), int(n_tweets), int(positive_tweets), int(neg_tweets), int(neutral_tweets)]
         output.append(line)
 
     arq.close()
