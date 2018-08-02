@@ -2,7 +2,7 @@ from flask import Flask
 import time
 import datetime
 
-from analise.data_queries import save_data, get_data
+from controllers.data_queries import save_data, get_data
 from controllers.post_processing import get_tweets
 from controllers.miner import miner
 from dao.feeling_dao import create_feelings
