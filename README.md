@@ -75,11 +75,11 @@ Neste exemplo nós estamos referenciando um arquivo "chromedriver.exe" através 
 ```
 $ python app.py
 ``` 
-* 1.7) Iniciando a API, com o banco conectado através do XAMP, agora pode-se acessar através do navegador o servidor do Flask, em local host, pelo endereço:
+* 1.7) Iniciando a API, com o banco conectado através do XAMP, agora você pode acessor pelo navegador o servidor do Flask, em local host, pelo endereço:
 ```
 http://127.0.0.1:5000
 ```
-
+A página carregada mostrar alguns gráficos construídos em cima da coleta dos tweets e também da análise de sentimento feita com base nas hashtags e os textos dos tweets.
 
 ### Documentação
 
