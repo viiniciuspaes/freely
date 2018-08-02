@@ -32,7 +32,7 @@ save_data(get_data())
 
 @app.route('/')
 def Index():
-    return render_template('hash-busca.html', TAG = str(select))
+    return render_template('hash-busca.html')
 
 @app.route('/pesquisaHash', methods={'POST','GET'})
 def PesquisaHash():
@@ -41,11 +41,12 @@ def PesquisaHash():
 
 @app.route('/fonte-busca', methods={'POST','GET'})
 def PesquisaFonte():
-    selct = ""
-    return render_template('fonte-busca.html', TAG = select)
+    return render_template('fonte-busca.html')
+
+@app.route('/fonte-busca', methods={'POST','GET'})
+def PesquisaFonte():
+    return render_template('fonte-busca.html')
     
-
-
 if __name__ == '__main__':
     app.run()
     #debug=True
