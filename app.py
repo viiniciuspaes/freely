@@ -1,7 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template, request
 import time
 import datetime
-
 from controllers.data_queries import save_data, get_data
 from controllers.post_processing import get_tweets
 from controllers.miner import miner
@@ -32,9 +31,21 @@ arq.close()
 save_data(get_data())
 
 @app.route('/')
-def hello_world():
-    return 'Hello World!'
+def Index():
+    return render_template('hash-busca.html', TAG = str(select))
+
+@app.route('/pesquisaHash', methods={'POST','GET'})
+def PesquisaHash():
+    select = request.form.get('busca') 
+    return render_template('hash-busca.html', TAG = str(select))
+
+@app.route('/fonte-busca', methods={'POST','GET'})
+def PesquisaFonte():
+    selct = ""
+    return render_template('fonte-busca.html', TAG = select)
+    
 
 
 if __name__ == '__main__':
-    app.run(DEBUG=True)
+    app.run()
+    #debug=True
