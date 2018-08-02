@@ -1,5 +1,8 @@
 from flask import Flask
+import time
+import datetime
 
+from analise.plot.data_queries import save_data, get_data
 from controllers.post_processing import get_tweets
 from controllers.miner import miner
 from dao.feeling_dao import create_feelings
@@ -13,9 +16,20 @@ init(True)
 create_feelings()
 create_users()
 create_fonts()
-# hashtag = "LulaLivre"
-# miner(1527811200, 1530791440, hashtag)
-# get_tweets(hashtag)
+
+start = time.mktime(datetime.datetime.strptime("01/03/2018", "%d/%m/%Y").timetuple())
+end = time.mktime(datetime.datetime.strptime("31/07/2018", "%d/%m/%Y").timetuple())
+
+
+arq = open('hashtags.txt', 'r')
+lines = arq.readlines()
+for hashtag in lines:
+    hashtag = hashtag.replace("\n", "")
+    miner(start, end, hashtag)
+    get_tweets(hashtag)
+
+arq.close()
+save_data(get_data())
 
 @app.route('/')
 def hello_world():

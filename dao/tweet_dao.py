@@ -1,4 +1,4 @@
-from database.db_helper import get_session, Tweet
+from database.db_helper import get_session, Tweet, TagTweet
 
 
 def insert_tweet(tweet_obj):
@@ -22,3 +22,15 @@ def insert_tweet(tweet_obj):
     tweet_id = new_tweet.id
     session.close()
     return tweet_id
+
+
+def n_tweets_feeling(id_feeling, id_hashtag):
+    session = get_session()
+    session = session()
+    feeling_query = session.query(Tweet, TagTweet).filter(Tweet.id_feeling == id_feeling and id_hashtag == TagTweet.id_hashtag and Tweet.id == TagTweet.id_tweet).all()
+    if feeling_query:
+        number = len(feeling_query)
+        return number
+    else:
+        session.close()
+        return 0
