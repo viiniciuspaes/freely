@@ -109,6 +109,6 @@ def gerar_grafico_sentimento(pathData):
     plt.show()
 
 
-gerar_grafico_barras('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
-gerar_grafico_pizza('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
-gerar_grafico_sentimento('/home/chico/Documentos/UFRPE/projeto-bd/freely/analise/plot/testes.csv')
+gerar_grafico_barras(r'data.csv')
+gerar_grafico_pizza(r'data.csv')
+gerar_grafico_sentimento(r'data.csv')

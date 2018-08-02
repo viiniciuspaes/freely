@@ -28,7 +28,7 @@ end = time.mktime(datetime.datetime.strptime("31/07/2018", "%d/%m/%Y").timetuple
 #     get_tweets(hashtag)
 #
 # arq.close()
-save_data(get_data())
+# save_data(get_data())
 
 @app.route('/')
 def Index():
