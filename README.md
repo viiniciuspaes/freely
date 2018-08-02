@@ -23,8 +23,9 @@
 
 - [x] [Python 3.4 ou superior](https://www.python.org/downloads/)
 - [x] [Google Chrome](https://www.google.com/chrome/)
-
-* 1.1.1) Após a instalação verificar se o python foi corretamente instalado através do terminal, ou cmd, usando o do comando:
+- [x] [MySQL](https://www.mysql.com/)
+- [x] [XAMP](https://www.apachefriends.org/pt_br/index.html)
+* 1.1.1) Após a instalação, verificar se o python foi corretamente instalado através do terminal, ou cmd, usando o do comando:
 ```
 $ python -V
 ```
@@ -52,7 +53,9 @@ $ pip install -r requirements.txt
 ```
 $ pip install <nome_da_biblioteca>
 ``` 
-
+* 1.x) No XAMP é necessário iniciar o MySQL -> iniciar MySQL
+* 1.xx) Mudar endereço da conta de acesso ao banco ->
+* 1.x) Mudar endereço dos arquivos pelos PATH
 * 1.6) Após isso inicie a API dentro do repositório do projeto pelo terminal ou cmd com o comando:
 ```
 $ python app.py
