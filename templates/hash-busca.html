@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metas -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    
+    <title>Freely - Busca Tweet</title>
+
+    <!-- Head -->
+    <link href="../static/css/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Header Page -->
+    <nav id="main-navgation" class="navbar">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menu" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar top-bar"></span>
+        <span class="icon-bar middle-bar"></span>
+        <span class="icon-bar bottom-bar"></span>
+      </button>
+    </div><!-- /.navbar-header -->
+
+
+
+    <div id="menu" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav navbar">
+        <li><a href="{{ url_for('Index') }}">Procurar por Hashtag </a></li>
+        <li><a href="{{ url_for('QuantidadeTweets') }}">Gráfico de HashTag/Tweet</a></li>
+        <li><a href="{{ url_for('PesquisaFonte') }}">Gráfico de Sentimentos/Tweet</a></li>
+      </ul><!-- /.nav -->
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav><!-- /.navbar -->
+    
+    <div class="wrapper">
+      <div class="container">
+        <div class="row">
+
+          <section class="page-container">
+            <div class="content-main">
+            <div class="box-user-profile">
+              <form method="POST" action="{{ url_for('PesquisaHash') }}" class="form-search">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Selecione uma Hashtag</label>
+                <select class="form-control" name="busca">
+                  <option>--</option>
+                  <option value="LulaLivre">#LulaLivre</option>
+                  <option value="LulaLadrao">#LulaLadrao</option>
+                  <option value="Bolsonaro2018">#Bolsonaro2018</option>
+                  <option value="GleisiTerrorista">#GleisiTerrorista</option>
+                  <option value="Ciro">#Ciro</option>
+                  <option value="eleicoes2018">#eleicoes2018</option>
+                  <option value="marina">#marina</option>
+                  <option value="ciro">#ciro</option>
+                  <option value="alckimin">#alckimin</option>
+                  <option value="rodaviva">#rodaviva</option>
+                  <option value="BolsonaroRodaViva">#BolsonaroRodaViva</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn-default round">Pesquisar</button>
+              </form>
+            </div>
+              <div class="box-user-profile">
+                <div class="profile">
+
+                  <div hidden class="media-body media-middle">
+                    <div class="row">
+                      <div class="info-user">
+                        <header><h1 class="media-heading" align="justify">No campo acima você pode escolher as Hashtags que temos na nossa base.</h1></header>
+
+                      </div><!-- /.desc-user -->
+
+                    </div><!-- /.row -->
+                  </div><!-- /.media-body -->
+                </div><!-- /.profile -->
+              </div><!-- /.box-user-profile -->
+
+            </div><!-- /.content-main -->
+          </section><!-- /.page-conta -->
+                   <aside class="page-related">
+  <div class="content-related">
+
+    <div class="box-lista-quente">
+      <header>
+         <h2>Gráfico de Sentimento</h2> 
+      </header>
+      <div class="profile media">
+        <div class="media-left"><!--../static/img/{{TAG}}.png-->
+           <figure><img class="media-object " src="../static/img/imagem-um.png" alt="..."></figure>
+        </div>
+
+      </div><!-- /.profile -->
+
+      <div class="profile media">
+        <div class="media-body media-middle">
+            <div class="info-user">
+              <!--<header><h2 class="media-heading">NUMERO TOTAL TWEETS</h2></header>-->
+
+            </div><!-- /.desc-user -->
+        </div><!-- /.media-body -->
+      </div><!-- /.profile -->
+
+      </div><!-- /.profile -->
+    </div><!-- /.box-lista-quente -->
+  
+
+  </div><!-- /.content-related -->
+</aside><!-- /page-related -->
+     
+
+        </div><!-- /.row -->
+      </div><!-- /.container -->
+    </div><!-- /.wrapper -->
+
+
+
+    <!-- Footer Page -->
+    <?php //include "assets/inc/footer.php" ?>
+    <!-- Page Js -->
+    <?php include "assets/inc/js.php" ?>
+  </body>
+</html>

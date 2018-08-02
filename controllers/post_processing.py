@@ -11,6 +11,7 @@ from traceback import print_tb, extract_tb, format_list
 from analise.analisys_test import analize
 from controllers.db_controllers import get_location, get_user, add_hashtag
 from dao.feeling_dao import search_feeling
+from dao.font_dao import search_font
 from dao.hashtag_dao import insert_hashtag
 from dao.tweet_dao import insert_tweet
 from dao.tweet_hash_dao import insert_relation_tweet_tag
@@ -18,6 +19,7 @@ from models.hashtag import HashTagObj
 from models.location import LocationObj
 from models.tweet import TweetObj
 from models.user import UserObj
+from models.font import FontObj
 from dao.user_dao import insert_user, search_user
 from utils.location_utils import search_location_by_name
 from utils.text_utils import remove_emoji, strip_all_entities
@@ -25,25 +27,24 @@ from utils.text_utils import remove_emoji, strip_all_entities
 
 def printError():
     error = sys.exc_info()
-    type = error[0]#tipo do erro
+    type = error[0] #tipo do erro
     print('\n'+'Type: \n'+str(type)+'\n')
     value = error[1] # valor do erro
     print('Value: \n'+str(error[1])+'\n')
-    tb=error[2]
+    tb = error[2]
     print('Traceback:')
-    e_tb=extract_tb(tb)
+    e_tb = extract_tb(tb)
     f_l=format_list(e_tb)#traceback em forma de lista para futuro usos
     print_tb(tb)
 
 
 def get_tweets(hashtag):
-    arquivo = open('{}.txt'.format(hashtag),'r')
-    lista=arquivo.read().split()
+    arquivo = open(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\{}.txt'.format(hashtag),'r')  #TODO: precisa mudar para rodar
+    lista = arquivo.read().split()
     lista1=[]
-    for x in range (len(lista)):
-        if x%2==0:
+    for x in range(len(lista)):
+        if x % 2 == 0:
             lista1.append(lista[x])
-
 
     cwd = os.getcwd()
     auth = tweepy.OAuthHandler('jkwDvQkT5Es6S24JiLq2FLxrb', 'ju5ogpsqo3cQLxtgTurMgq7cmWt8CN2H9lQ0F5wGGrmegcvAMp')
@@ -53,7 +54,7 @@ def get_tweets(hashtag):
     for x in lista1:
         print(x)
         try:
-            tweet = api.get_status(x , tweet_mode='extended')
+            tweet = api.get_status(x, tweet_mode='extended')
             hashtags = tweet.entities["hashtags"]
             nomeUsuario = tweet.user.screen_name#nick fixo
             location = tweet.user.location
@@ -79,22 +80,41 @@ def get_tweets(hashtag):
 
             feeling = analize(textoTweet)
             id_feeling = search_feeling(list(feeling)[0])[1]
-            # print(feeling)
+            try:
+                regex_link = "(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\S"
+                regex = re.compile(regex_link)
+                url = regex.search(textoTweet).group(0)
+                font = FontObj()
+                font.set_url(url)
+                font.set_user(user_id)
+                font = search_font(font)
+                if font:
+                    reliability = font.is_reliable()
+                    id_font = font.get_id()
 
-            regex_link = "(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w\.-]*)*\/?\S"
-            textoTweet = re.sub(regex_link, "", textoTweet)
+                else:
+                    reliability = True
+                    id_font = None
+            except:
+                reliability = True
+                id_font = None
 
+            tweetDate = str(tweetDate.year) + "/" + str(tweetDate.month) + "/" + str(tweetDate.day)
 
             textoTweet = remove_emoji(textoTweet)
 
             textoTweet = strip_all_entities(textoTweet)
 
             tweet_obj = TweetObj(textoTweet)
+
+            tweet_obj.set_font(id_font)
             tweet_obj.set_number_likes(likes)
             tweet_obj.set_location(location_id)
             tweet_obj.set_user(user_id)
             tweet_obj.set_number_retweet(retweetCount)
             tweet_obj.set_feeling(id_feeling)
+            tweet_obj.set_reliability(reliability)
+            tweet_obj.set_data(tweetDate)
 
             id_tweet = insert_tweet(tweet_obj)
 
@@ -103,11 +123,9 @@ def get_tweets(hashtag):
                 hash_id = add_hashtag(h)
                 insert_relation_tweet_tag(hash_id, id_tweet)
 
-
-
-
             print("------------------------------------------------------------")
             print(nomeUsuario)
+            print("Data:", tweetDate)
             print("hash",hashtags)
             print("localizacao",location)
             print("followers",followersUsuario)
@@ -116,8 +134,9 @@ def get_tweets(hashtag):
             print("retweet",retweetCount)
             print("likes",likes)
             print("feeling:",feeling)
+            print("links: ", url)
             print("----------------------------------- NEW TWEET -------------------------")
 
         except:
             printError()
-get_tweets("LulaLivre")
+# get_tweets("Bolsonario2018")

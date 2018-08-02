@@ -28,3 +28,15 @@ def search_hashtag(hashtag):
     else:
         session.close()
         return None
+
+
+def search_hashtag_by_id(hashtag):
+    session = get_session()
+    session = session()
+    tag_query = session.query(HashTag).filter(HashTag.id == hashtag).all()
+    if tag_query:
+        session.close()
+        return tag_query[0].name
+    else:
+        session.close()
+        return None

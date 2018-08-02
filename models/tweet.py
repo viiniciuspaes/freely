@@ -11,7 +11,7 @@ class TweetObj:
         self.n_retweets = None
         self.n_likes = None
         self.date = None
-        self.fake = False
+        self.reliable = True
 
     def set_user(self, user):
         self.id_user = user
@@ -74,7 +74,7 @@ class TweetObj:
         return self.date
 
     def set_reliability(self, bool):
-        self.fake = bool
+        self.reliable = bool
 
-    def is_fake(self):
-        return self.fake
+    def is_reliable(self):
+        return self.reliable

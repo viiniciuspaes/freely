@@ -1,4 +1,4 @@
-from database.db_helper import get_session, User
+from database.db_helper import get_session, User, get_engine
 from models.user import UserObj
 
 
@@ -24,7 +24,6 @@ def search_user(username):
         user_query = user_query[0]
         user_obj = UserObj(user_query.username)
         user_obj.set_id(user_query.id)
-        user_obj.set_location(user_query.id_location)
         session.close()
         return user_obj
     else:
@@ -39,9 +38,45 @@ def search_user_by_id(id):
         user_query = user_query[0]
         user_obj = UserObj(user_query.username)
         user_obj.set_id(user_query.id)
-        user_obj.set_location(user_query.id_location)
         session.close()
         return user_obj
     else:
         session.close()
         return None
+
+
+def create_users():
+    con = get_engine()
+    rs = con.execute("""insert into user (username) values
+  ("roxmo"),
+  ("DaniloGentili"),
+  ("Jornalivre_BR"),
+  ("brasilpensa"),
+  ("diariodobrasil"),
+  ("epoca"),
+  ("catracalivre"),
+  ("diplomatique"),
+  ("piaui"),
+  ("superinteressante"),
+  ("uol"),
+  ("ne10"),
+  ("r7"),
+  ("bbc"),
+  ("cartacapital"),
+  ("diariodepernambuco"),
+  ("estadao"),
+  ("folha"),
+  ("jornaldocomercio"),
+  ("elpais"),
+  ("exame"),
+  ("veja"),
+  ("g1"),
+  ("istoe"),
+  ("oglobo"),
+  ("terra"),
+  ("JornalistasLivres"),
+  ("VejaSP"),
+  ("VejaRJ"),
+  ("sensacionalista"),
+  ("mblivre")
+  on duplicate key update username=username;""")

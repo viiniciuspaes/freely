@@ -33,7 +33,6 @@ class User(Base):
     __tablename__ = "user"
 
     id = Column("id_user", Integer, primary_key=True)
-    id_location = Column("d_local", Integer, ForeignKey(Location.id))  # TODO: Remove
     username = Column("username", Text, nullable=False)
 
 
@@ -52,14 +51,12 @@ class Tweet(Base):
     id = Column("id_tweet", Integer, primary_key=True)
     id_user = Column("id_user", Integer, ForeignKey(User.id), nullable=False)
     id_location = Column("id_location", Integer, ForeignKey(Location.id))
-    id_feeling = Column("id_feeling", Integer, ForeignKey(Feeling.id))  # TODO: tem que ser nullable = False
+    id_feeling = Column("id_feeling", Integer, ForeignKey(Feeling.id), nullable=False)
     id_font = Column("id_font", Integer, ForeignKey(Font.id))
     text = Column("text_tweet", Text, nullable=False)
-    n_reply = Column("n_reply", Integer)  # TODO: pode ser removida ja que replys sao outros tweets é essa informação
-    # nao fica disponivel
     n_retweets = Column("n_retweets", Integer, nullable=False)
     n_likes = Column("n_likes", Integer, nullable=False)
-    data = Column("data", DateTime, nullable=True)  # TODO: tem que ser False
+    data = Column("data", String(254), nullable=False)
     fake = Column("fake", Boolean)
 
 
