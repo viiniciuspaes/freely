@@ -109,6 +109,6 @@ def gerar_grafico_sentimento(pathData):
     plt.show()
 
 
-gerar_grafico_barras(r'data.csv')
-gerar_grafico_pizza(r'data.csv')
-gerar_grafico_sentimento(r'data.csv')
+gerar_grafico_barras(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\data.csv')
+gerar_grafico_pizza(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\data.csv')
+gerar_grafico_sentimento(r'C:\Users\vinic\OneDrive\workspace\PytonProjects\freely\data.csv')

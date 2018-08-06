@@ -33,7 +33,7 @@
       <ul class="nav navbar-nav navbar">
         <li><a href="{{ url_for('Index') }}">Procurar por Hashtag </a></li>
         <li><a href="{{ url_for('QuantidadeTweets') }}">Gráfico de HashTag/Tweet</a></li>
-        <li><a href="{{ url_for('PesquisaFonte') }}">Gráfico de Sentimentos/Tweet</a></li>
+        <li><a href="{{ url_for('PesquisaFonte') }}">Gráfico percentual Tweet</a></li>
       </ul><!-- /.nav -->
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container -->
@@ -49,7 +49,7 @@
               <form method="POST" action="{{ url_for('PesquisaHash') }}" class="form-search">
               <div class="form-group">
                 <label for="exampleInputEmail1">Selecione uma Hashtag</label>
-                <select class="form-control" name="busca">
+               <!-- <select class="form-control" name="busca">
                   <option>--</option>
                   <option value="LulaLivre">#LulaLivre</option>
                   <option value="LulaLadrao">#LulaLadrao</option>
@@ -62,7 +62,7 @@
                   <option value="alckimin">#alckimin</option>
                   <option value="rodaviva">#rodaviva</option>
                   <option value="BolsonaroRodaViva">#BolsonaroRodaViva</option>
-                </select>
+                </select> -->
               </div>
               <button type="submit" class="btn btn-default round">Pesquisar</button>
               </form>
